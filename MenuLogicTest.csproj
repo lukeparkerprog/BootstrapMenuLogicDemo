@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="dll\**" />
+    <Content Remove="dll\**" />
+    <EmbeddedResource Remove="dll\**" />
+    <None Remove="dll\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MenuLogic">
+      <HintPath>dll\MenuLogic.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

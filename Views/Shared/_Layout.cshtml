@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    @{
+            Menu menu = new Menu
+            {
+                Brand = "<img class=\"d-inline-block align-top rounded\" src=\"/VSIcon.png\" style=\"height: 30px\" /> Visual Studio",
+                Style = "dark",
+                MenuItems = new List<IMenuItem>
+                {
+                    new MenuLink { LinkText = "Home", Action = "Index", Controller = "Home"},
+                    new MenuLink { LinkText = "Home2", Action = "Index2", Controller = "Home" },
+                    new MenuSub
+                    {
+                        DropdownLabel = "Dropdown",
+                        Links = new List<MenuSubLink> { new MenuSubLink { LinkText = "Dropdown Item", Action = "Drop", Controller = "Home" } }
+                    }
+                }
+        };
+        HtmlString menuHtml = new HtmlString(menu.Render());
+    }
+    @menuHtml
+    <div>
+        @RenderBody()
+    </div>
+    
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
